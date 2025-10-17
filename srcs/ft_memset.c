@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 11:59:59 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/14 14:48:24 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/14 13:34:09 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/15 11:02:15 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	if ((c > 96 && c < 123) || (c > 64 && c < 91))
-		return (c);
-	else
-		return (0);
+	size_t			i;
+	unsigned char	*new_pointer;
+
+	new_pointer = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		new_pointer[i] = c;
+		i++;
+	}
+	return (s);
 }

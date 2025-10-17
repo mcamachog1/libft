@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 11:59:59 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/14 14:48:24 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/14 14:34:38 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/15 11:01:38 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, void *src, size_t n)
 {
-	if ((c > 96 && c < 123) || (c > 64 && c < 91))
-		return (c);
-	else
-		return (0);
+	unsigned char	*bytes_src;
+	unsigned char	*bytes_dest;
+	size_t			i;
+
+	bytes_src = (unsigned char *)src;
+	bytes_dest = (unsigned char *)dest;
+	i = 0;
+	while (i < n)
+	{
+		bytes_dest[i] = bytes_src[i];
+		i++;
+	}
+	return (dest);
 }

@@ -1,14 +1,14 @@
 #include <stdio.h>
-//#include <libft.h> 
+#include <libft.h> 
 
 int main() {
     char ch1 = 'a';
     char ch2 = '9';
     char ch3 = '-';
-    int  n;
+    int	n;
 
     n = ft_isalpha(ch1);
-    printf("%d\n",n); 
+    printf("%d\n", n); 
     // Test 1: 'A' (Alphabetic)
     if (ft_isalpha(ch1)) {
         printf("'%c' is an alphabet.\n", ch1);

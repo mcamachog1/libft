@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft1_memmove.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 11:59:59 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/14 14:48:24 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/15 10:29:02 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/15 13:09:21 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+void	*ft_memmove(void *dst, void *src, size_t n)
 {
-	if ((c > 96 && c < 123) || (c > 64 && c < 91))
-		return (c);
-	else
-		return (0);
+	unsigned char	*bytes_dst;
+	unsigned char	*bytes_src;
+	unsigned char	temp[n];
+	size_t			i;
+
+	bytes_src = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		temp[i] = bytes_src[i];
+		i++;
+	}
+	bytes_dst = (unsigned char *)dst;
+	i = 0;
+	while (i < n)
+	{
+		bytes_dst[i] = temp[i];
+		i++;
+	}
+	return (dst);
 }

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 11:59:59 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/14 14:48:24 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/16 15:11:00 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/16 15:29:59 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if ((c > 96 && c < 123) || (c > 64 && c < 91))
-		return (c);
-	else
-		return (0);
+	while (*s)
+	{
+		if (*s == c)
+			return ((char *)s);
+		else
+			s++;
+	}
+	return (0);
 }

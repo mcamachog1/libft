@@ -6,7 +6,7 @@
 #    By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 14:12:19 by macamach          #+#    #+#              #
-#    Updated: 2025/10/09 17:48:47 by macamach         ###   ########.fr        #
+#    Updated: 2025/10/14 11:03:46 by macamach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = $(wildcard srcs/*.c)
 
 # Object files
-OBJS = $(SRCS:.c:.o)
+OBJS = $(SRCS:%.c=%.o)
 
 # Header directory for includes
 INCLUDES = -I includes
