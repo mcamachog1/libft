@@ -11,25 +11,23 @@ int	ft_isspace(char c)
 
 int	ft_atoi(const char *nptr)
 {
-	size_t	i;
 	int	factor;
 	int	number;
 
-	i = 0;
 	number = 0;
 	factor = 1;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		if (nptr[i] == '-')
+		if (*nptr == '-')
 			factor = -1;
-		i++;
+		nptr++;
 	}
-	while (ft_isdigit(nptr[i])) 
+	while (ft_isdigit(*nptr)) 
 	{
-		number = number * 10 + (nptr[i] - 48);
-		i++;
+		number = number * 10 + (*nptr - 48);
+		nptr++;
 	}
 	return (number * factor);
 }
