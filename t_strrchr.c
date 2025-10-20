@@ -8,7 +8,7 @@ int	main(void)
 	char	*pointer;
 
 	printf("%d\n", c);
-	pointer = ft_strchr(string, c);
+	pointer = ft_strrchr(string, c);
 	printf("%d\n", c);
 	printf("%s\n", pointer);
 	return (0);
