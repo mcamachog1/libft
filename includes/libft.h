@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 11:42:42 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/17 12:42:41 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:14:36 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));	
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 #endif
