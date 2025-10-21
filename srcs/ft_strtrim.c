@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 09:50:00 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/21 09:50:12 by macamach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_ischarinstr(char c, const char *str)
@@ -29,10 +41,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		{
 			strtrim[j] = s1[i];
 			i++;
-			j++; 
+			j++;
 		}
 		else
-			i++;		
+			i++;
 	}
 	strtrim[i] = '\0';
 	return (strtrim);

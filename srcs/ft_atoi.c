@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 09:46:16 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/21 09:57:45 by macamach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isspace(char c)
 {
-
 	if (c == 32 || (c >= 9 && c <= 13))
 		return (1);
 	else
@@ -24,7 +35,7 @@ int	ft_atoi(const char *nptr)
 			factor = -1;
 		nptr++;
 	}
-	while (ft_isdigit(*nptr)) 
+	while (ft_isdigit(*nptr))
 	{
 		number = number * 10 + (*nptr - 48);
 		nptr++;
