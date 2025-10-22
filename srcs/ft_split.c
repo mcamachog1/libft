@@ -12,13 +12,27 @@
 
 #include "libft.h"
 
-int	ft_countdelimiters(char c, const char *str)
+char	*char_to_string(char c)
+{
+    char *s;
+
+    s = malloc(sizeof(char) * 2);
+    if (s == NULL) 
+        return (NULL);
+    s[0] = c;
+    s[1] = '\0';
+    return (s);
+}
+
+int	ft_countwords(char c, const char *str)
 {
 	size_t	total;
 	int	flag;
 
 	flag = 0;
-	total = 1;
+	total = 0;
+	while (*str == c)
+		str++;
 	while (*str)
 	{
 		if (*str == c && flag == 0)
@@ -32,14 +46,14 @@ int	ft_countdelimiters(char c, const char *str)
 	}
 	return (total);
 }
-
 char const	*sufix(char const *str, char c)
 {
-	if (ft_countdelimiters(c, str) == 0)
+	if (ft_countwords(c, str) == 0)
 		return (NULL);
+	while (*str == c)
+		str++;
 	while (*str != c)
 		str++;
-	str++;
 	if (*str)
 		return (str);
 	else
@@ -50,20 +64,23 @@ char	*prefix(char const *str, char c)
 {
 	size_t	len;
 	char	*prefix;
+	char	*word;
+	char	*set;
 
 	len = 0;
-	while (*str == c)
-		str++;	
-	while (*str != c)
-	{
-		str++;
+	while (str[len] == c)
 		len++;
-	}
+	while (str[len] != c && str[len])
+		len++;
 	prefix = malloc(len + 1);
 	if (prefix == NULL)
 		return (NULL);
 	prefix = ft_substr(str, 0, len);
-	return (prefix);
+	set = char_to_string(c);
+	word = ft_strtrim(prefix, set);
+	free(prefix);
+	free(set);
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
@@ -72,22 +89,22 @@ char	**ft_split(char const *s, char c)
 	size_t	numstrs;
 	size_t	i;
 
-	numstrs = ft_countdelimiters(c, s) + 1;
+	numstrs = ft_countwords(c, s);
 	pointers = malloc(numstrs * sizeof(char *));
 	ft_memset(pointers, 0, numstrs);
 	i = 0;
 	while (i < numstrs)
 	{
-		if (s == NULL)
-		{
-			pointers[i] = malloc(1);
-			pointers[i] = 0;
-		}
-		else
-		{
+	//	if (s == NULL)
+	//	{
+	//		pointers[i] = malloc(1);
+	//		pointers[i] = 0;
+	//	}
+	//	else
+	//	{
 			pointers[i] = prefix(s, c);
 			s = sufix(s, c);
-		}
+	//	}
 		i++;
 	}
 	pointers[i] = NULL;

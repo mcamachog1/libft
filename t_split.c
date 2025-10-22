@@ -2,13 +2,13 @@
 
 int	main(void)
 {
-	char	*string = ",ab,c,de,efg,";
-	char	delimiter = ',';
+	char	*string = "1e2e3e,abe,,,,,c,deee,,,efg,,,ee";
+	char	delimiter = 'e';
 	char	**split;
 	int	i;
 
 
-	printf("CALL FUNCTION string:%s\ndelimiter:%c\n\n", string, delimiter);
+	printf("\nCALL FUNCTION string:%s\ndelimiter:%c\n\n", string, delimiter);
 	split = ft_split(string, delimiter);
 	i = 0;
 	while (split[i])
