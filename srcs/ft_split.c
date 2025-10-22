@@ -95,16 +95,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < numstrs)
 	{
-	//	if (s == NULL)
-	//	{
-	//		pointers[i] = malloc(1);
-	//		pointers[i] = 0;
-	//	}
-	//	else
-	//	{
-			pointers[i] = prefix(s, c);
-			s = sufix(s, c);
-	//	}
+		pointers[i] = prefix(s, c);
+		s = sufix(s, c);
 		i++;
 	}
 	pointers[i] = NULL;
