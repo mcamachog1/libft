@@ -9,9 +9,13 @@
 /*   Updated: 2025/10/16 15:29:59 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
+	
+	if (!s || c)
+
 	while (*s)
 	{
 		if (*s == c)
@@ -19,5 +23,5 @@ char	*ft_strchr(const char *s, int c)
 		else
 			s++;
 	}
-	return (0);
+	return (NULL);
 }

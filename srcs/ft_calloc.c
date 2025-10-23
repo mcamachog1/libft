@@ -24,6 +24,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (nmemb > INT_MAX / size)
 		return (NULL);
 	pointer = malloc(nmemb * size);
+	if (pointer == NULL)
+		return (NULL);
 	ft_memset(pointer, 0, nmemb * size);
 	return (pointer);
 }

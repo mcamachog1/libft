@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:50:00 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/21 09:50:12 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/23 13:55:15 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		}
 		else
 			i++;
-		
 	}
 	strtrim[i] = '\0';
 	return (strtrim);

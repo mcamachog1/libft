@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:52:22 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/21 12:34:13 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/23 13:58:02 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*char_to_string(char c)
 {
-    char *s;
+	char	*s;
 
-    s = malloc(sizeof(char) * 2);
-    if (s == NULL) 
-        return (NULL);
-    s[0] = c;
-    s[1] = '\0';
-    return (s);
+	s = malloc(sizeof(char) * 2);
+	if (s == NULL)
+		return (NULL);
+	s[0] = c;
+	s[1] = '\0';
+	return (s);
 }
 
 int	ft_countwords(char c, const char *str)
 {
 	size_t	total;
-	int	flag;
+	int		flag;
 
 	flag = 0;
 	total = 0;
@@ -46,6 +46,7 @@ int	ft_countwords(char c, const char *str)
 	}
 	return (total);
 }
+
 char const	*sufix(char const *str, char c)
 {
 	if (ft_countwords(c, str) == 0)

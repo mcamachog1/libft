@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:59:24 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/16 14:25:21 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/23 15:29:41 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
 	if (size < 2)
-		return (dst_len + src_len);
+		return (src_len);
 	i = dst_len;
 	j = 0;
 	while ((i < size - 1) && src[j])

@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:36:40 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/21 14:22:24 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/23 13:55:44 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 
 	i = 0;
 	if (!s[i])
-		return;
+		return ;
 	while (s[i])
 	{
 		f(i, &s[i]);
