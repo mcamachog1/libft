@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 09:40:36 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/23 11:16:08 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/23 11:48:25 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,41 @@ unsigned int	number_len(int n)
 	return (len);
 }
 
+unsigned int	ft_abs(int n)
+{
+	if (n > 0)
+		return (n);
+	else
+		return (-n);
+}
+
 char	*ft_itoa(int n)
 {
 	unsigned int	len;
 	unsigned int	i;
-	int		j;
+	unsigned int	number;
 	char		*str;
 	int		digit;
 
+	number = ft_abs(n);
+	if (number == 0)
+		return ("0");
 	len = number_len(n);
 	str = malloc(len + 1);
 	if (str == NULL)
 		return (NULL);
-	//ft_memset(str, 48, len - 1);
+	ft_memset(str, 48, len);
+	str[len] = '\0';
 	i = 0;
-	j = len;
-	while (i < len)
+	while (str[i])
 	{
-		digit = n / power(10, j - 1);
-		str[i] = digit + 48;
-		n = n - (digit * power(10, j - 1));
-		j--;
+		digit = number / power(10, len - 1);
+		str[i] += digit;
+		number = number - (digit * power(10, len - 1));
+		len--;
 		i++;
 	}
-	str[i] = '\0';
+	if (n < 0)
+		return ("-1");
 	return (str);
 }
