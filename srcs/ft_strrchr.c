@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:50:32 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/21 09:50:35 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/24 13:45:30 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,21 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	len;
+	size_t	n;
 
-	len = ft_strlen(s);
-	while (len > 0)
+	n = ft_strlen(s);
+	if ((unsigned char)c == 0)
 	{
-		if (s[len - 1] == c)
-			return ((char *)&s[len - 1]);
+		while (s[n])
+			n--;
+		return ((char *)(&s[n]));
+	}
+	while (n > 0)
+	{
+		if (s[n - 1] == (unsigned char)c)
+			return ((char *)&s[n - 1]);
 		else
-			len--;
+			n--;
 	}
 	return (NULL);
 }
