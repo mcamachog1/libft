@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:34:38 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/23 14:53:20 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/24 09:41:31 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*bytes_src;
 	unsigned char	*bytes_dest;
 	size_t			i;
-	
+
 	if (dest == NULL && src == NULL)
 		return (NULL);
 	bytes_src = (unsigned char *)src;

@@ -7,17 +7,19 @@
 int	main(void)
 {
 	char	message[100];
-	char	dst[20] = "Tiene espacio ";
-	char	src[10] = "123456789";
+	char	dst[20] = "NoTieneespacio";
+	char	src[5] = "abcd";
+	size_t	size;
 	
 	//dst = malloc(2 * sizeof(char));
 	//if (dst == NULL)
 	//	return (1);
-	
-	printf("bufferSIZE=%zu\n", sizeof(dst));
+	//printf("%zu\n", ft_strlcat("pqrstuvwxyz", "abcd", 2));
+	printf("tamanoDestino=%zu\n", sizeof(dst));
 	printf("dst=%s\n", dst);
 	printf("src=%s\n", src);
-	ft_strlcat(dst, src, 20);	
+	size = ft_strlcat(dst, src, 2);	
+	printf("size:%zu\n", size);
 	printf("dst=%s\n", dst);
 	printf("src=%s\n", src);
 	//free(dst);

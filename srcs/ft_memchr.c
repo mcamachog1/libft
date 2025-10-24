@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:56:34 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/21 10:08:19 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:49:32 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*pointer;
 	size_t			i;
 
-	pointer = (unsigned char *)s;
 	i = 0;
-	while (i < n && *pointer)
+	pointer = (unsigned char *)s;
+	while (i < n)
 	{
-		if (*pointer == c)
-			return ((void *)pointer);
+		if (pointer[i] == (unsigned char)c)
+			return ((void *)(pointer + i));
 		i++;
-		pointer++;
 	}
 	return (NULL);
 }
