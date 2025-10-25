@@ -3,7 +3,7 @@
 int	main(void)
 {
 	char	*string = " word other    another   ";
-	char	delimiter = '\0';
+	char	delimiter = ' ';
 	char	**split;
 	int	i;
 
