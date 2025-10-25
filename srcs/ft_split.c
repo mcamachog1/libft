@@ -27,10 +27,12 @@ char	*char_to_string(char c)
 int	ft_countwords(char c, const char *str)
 {
 	size_t	total;
+	size_t	len;
 	int		flag;
 
 	flag = 0;
 	total = 0;
+	len = ft_strlen(str);
 	while (*str == c)
 		str++;
 	while (*str)
@@ -44,6 +46,8 @@ int	ft_countwords(char c, const char *str)
 			flag = 0;
 		str++;
 	}
+	if (!total && len > 0)
+		return (1);
 	return (total);
 }
 

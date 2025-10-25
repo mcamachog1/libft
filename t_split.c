@@ -2,8 +2,8 @@
 
 int	main(void)
 {
-	char	*string = "1e2e3e,abe,,,,,c,deee,,,efg,,,ee";
-	char	delimiter = 'e';
+	char	*string = " word other    another   ";
+	char	delimiter = '\0';
 	char	**split;
 	int	i;
 
