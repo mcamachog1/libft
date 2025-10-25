@@ -29,7 +29,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*strtrim;
 	size_t	i;
 	size_t	j;
-
+	
+	if (!s1 || !set)
+		return (NULL);
 	strtrim = malloc(ft_strlen(s1) + 1);
 	if (strtrim == NULL)
 		return (NULL);
@@ -47,6 +49,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		else
 			i++;
 	}
-	strtrim[i] = '\0';
+	//strtrim[i] = '\0';
 	return (strtrim);
 }
