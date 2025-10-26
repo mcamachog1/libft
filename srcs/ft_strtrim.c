@@ -28,7 +28,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*strtrim1;
 	char	*strtrim2;
 	size_t	i;
-	
+
 	if (!s1 || !set)
 		return (NULL);
 	strtrim1 = ft_strdup(s1);
@@ -39,21 +39,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 		{
 			free(strtrim1);
 			strtrim1 = ft_strdup(&s1[i]);
-			break;
+			break ;
 		}
 		i++;
 	}
 	i = ft_strlen(strtrim1);
 	while (i > 0)
 	{
-		if(!ft_ischarinstr(strtrim1[i - 1], set))
+		if (!ft_ischarinstr(strtrim1[i - 1], set))
 		{
 			strtrim2 = ft_substr(strtrim1, 0, i);
 			free(strtrim1);
 			return (strtrim2);
 		}
-		else
-			i--;
+		i--;
 	}
 	return (strtrim1);
 }
