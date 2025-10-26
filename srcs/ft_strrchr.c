@@ -14,17 +14,37 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	len;
+	int	len;
 
+	len = ft_strlen(s);
+	if (!(unsigned char)c && !len)
+		return ((char *)s);
 	if (!s)
 		return (NULL);
-	len = ft_strlen(s);
-	while (len > 0)
+	while (len >= 0)
 	{
-		if (s[len - 1] == (unsigned char)c)
-			return ((char *)&s[len - 1]);
-		else
-			len--;
+		if (s[len] == (unsigned char)c)
+			return ((char *)&s[len]);
+		len--;
 	}
 	return (NULL);
 }
+/*
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
+
+	i = ft_strlen(s);
+	if (!i && !(unsigned char)c)
+		return ((char *)s);
+	if (!s)
+		return (NULL);
+	while (i >= 0)
+	{
+		if (s[i] == (unsigned char)c)
+			return ((char *)&s[i]);
+		i--;
+	}
+	return (NULL);
+}
+*/
