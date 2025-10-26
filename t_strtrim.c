@@ -6,14 +6,15 @@ int	main(void)
 	char	*set = "es";
 	/* Core */
 	printf("CORE\n");
-	printf("str:%s\nset:%s\ntrim:%s\n", string, set, ft_strtrim(string, set));
-/*	printf("str:%s\nset:%s\ntrim:%s\n", " Ho ", " ", ft_strtrim(" Ho ", " "));
+	//printf("str:%s\nset:%s\ntrim:%s\n", string, set, ft_strtrim(string, set));
+	printf("str:%s\nset:%s\ntrim:%s\n", " Ho ", " ", ft_strtrim(" Ho ", " "));
 	printf("str:%s\nset:%s\ntrim:%s\n", " Hello\nWorld ", " ", ft_strtrim(" Hello\nWorld ", " "));
 	printf("str:%s\nset:%s\ntrim:%s\n", "-+abc+--", "+-", ft_strtrim("-+abc+--", "+-"));
-	printf("str:%s\nset:%s\ntrim:%s\n", "---abc", "-", ft_strtrim("---abc", "-"));
-	printf("str:%s\nset:%s\ntrim:%s\n", "abc---", "-", ft_strtrim("abc---", "-"));
-	printf("str:%s\nset:%s\ntrim:%s\n", "x_a_x", "x", ft_strtrim("x_a_x", "x"));
-*/
+	printf("str:%s\nset:%s\ntrim:%s\n", "+---abc+-", "+-", ft_strtrim("+---abc+-", "+-"));
+	printf("str:%s\nset:%s\ntrim:%s\n", "abc---", "---", ft_strtrim("abc---", "---"));
+	printf("str:%s\nset:%s\ntrim:%s\n", "x_a_xx", "xx", ft_strtrim("x_a_xx", "xx"));
+	printf("str:%s\nset:%s\ntrim:%s\n", "xx_a_x", "xx", ft_strtrim("xx_a_x", "xx"));
+
 	/* Bound I */
 /*	printf("BOUND\n");
 	printf("str:%s\nset:%s\ntrim:%s\n", "", "abc", ft_strtrim("", "abc"));

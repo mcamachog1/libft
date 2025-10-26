@@ -9,7 +9,6 @@
 /*   Updated: 2025/10/23 13:55:15 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 int	ft_ischarinstr(char c, const char *str)
@@ -26,35 +25,35 @@ int	ft_ischarinstr(char c, const char *str)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	len_set;
-	size_t	len_s1;
-	char	*begin;
-	char	*end;
-	char	*strtrim;
-
-	len_set = ft_strlen(set);
-	len_s1 = ft_strlen(s1);
-	begin = malloc(len_set + 1);
-	end = malloc(len_set + 1);
-	if (!begin || !end)
-		return (NULL); 
-	begin = ft_substr(s1, 0, len_set);
-	end = ft_substr(s1, len_s1 - len_set, len_set);
-	printf("Str:%s\n", s1);
-	printf("begin:%s\n", begin);
-	printf("end:%s\n", end);
-	strtrim = (char *)s1;
-	if (!ft_strncmp(set, begin, len_set))
+	char	*strtrim1;
+	char	*strtrim2;
+	size_t	i;
+	
+	if (!s1 || !set)
+		return (NULL);
+	strtrim1 = ft_strdup(s1);
+	i = 0;
+	while (s1[i])
 	{
-		printf("\nquitar cabeza\n%s", begin);
-		strtrim = ft_substr(s1, len_set, len_s1 - len_set); 
-		printf("strtrim cabeza:%s\n", strtrim);
+		if (!ft_ischarinstr(s1[i], set))
+		{
+			free(strtrim1);
+			strtrim1 = ft_strdup(&s1[i]);
+			break;
+		}
+		i++;
 	}
-	if (!ft_strncmp(set, end, len_set))
+	i = ft_strlen(strtrim1);
+	while (i > 0)
 	{
-		printf("\nquitar cola\n%s", end);
-		strtrim = ft_substr(strtrim, 0, len_s1 - 2*len_set); 
-		printf("strtrim cola:%s\n", strtrim);
+		if(!ft_ischarinstr(strtrim1[i - 1], set))
+		{
+			strtrim2 = ft_substr(strtrim1, 0, i);
+			free(strtrim1);
+			return (strtrim2);
+		}
+		else
+			i--;
 	}
-	return (strtrim);
+	return (strtrim1);
 }
