@@ -9,50 +9,30 @@
 /*   Updated: 2025/10/23 13:55:15 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_ischarinstr(char c, const char *str)
-{
-	while (*str)
-	{
-		if (*str == c)
-			return (1);
-		else
-			str++;
-	}
-	return (0);
-}
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*strtrim1;
-	char	*strtrim2;
+	char	*trim;
+	size_t	len;
 	size_t	i;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
-	strtrim1 = ft_strdup(s1);
+	if (!set)
+		return (ft_strdup(s1));
 	i = 0;
-	while (s1[i])
-	{
-		if (!ft_ischarinstr(s1[i], set))
-		{
-			free(strtrim1);
-			strtrim1 = ft_strdup(&s1[i]);
-			break ;
-		}
+	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
-	}
-	i = ft_strlen(strtrim1);
-	while (i > 0)
-	{
-		if (!ft_ischarinstr(strtrim1[i - 1], set))
-		{
-			strtrim2 = ft_substr(strtrim1, 0, i);
-			free(strtrim1);
-			return (strtrim2);
-		}
-		i--;
-	}
-	return (strtrim1);
+	if (i == ft_strlen(s1))
+		return (ft_strdup(""));
+	len = ft_strlen(s1);
+	while (s1[len - 1] && ft_strchr(set, s1[len - 1]))
+		len--;
+	trim = malloc(sizeof(char) * (len - i + 1));
+	if (!trim)
+		return (NULL);
+	ft_strlcpy(trim, s1 + i, len - i + 1);
+	return (trim);
 }

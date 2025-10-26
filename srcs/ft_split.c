@@ -12,98 +12,77 @@
 
 #include "libft.h"
 
-char	*char_to_string(char c)
+static size_t	wordcount(char const *s, char c)
 {
-	char	*s;
+	size_t	count;
 
-	s = malloc(sizeof(char) * 2);
-	if (s == NULL)
-		return (NULL);
-	s[0] = c;
-	s[1] = '\0';
-	return (s);
-}
-
-int	ft_countwords(char c, const char *str)
-{
-	size_t	total;
-	size_t	len;
-	int		flag;
-
-	flag = 0;
-	total = 0;
-	len = ft_strlen(str);
-	while (*str == c)
-		str++;
-	while (*str)
+	count = 0;
+	while (*s)
 	{
-		if (*str == c && flag == 0)
+		if (*s != c)
 		{
-			total++;
-			flag = 1;
+			while (*s != c && *s)
+				s++;
+			count++;
 		}
-		else if (*str != c)
-			flag = 0;
-		str++;
+		if (*s == '\0')
+			break ;
+		s++;
 	}
-	if (!total && len > 0)
-		return (1);
-	return (total);
+	return (count);
 }
 
-char const	*sufix(char const *str, char c)
+static char	*getword(const char *s, char c)
 {
-	if (ft_countwords(c, str) == 0)
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	while (s[i] != c && s[i])
+		i++;
+	str = malloc(sizeof(char) * (i + 1));
+	if (!str)
 		return (NULL);
-	while (*str == c)
-		str++;
-	while (*str != c)
-		str++;
-	if (*str)
-		return (str);
-	else
-		return (NULL);
+	ft_strlcpy(str, s, i + 1);
+	return (str);
 }
 
-char	*prefix(char const *str, char c)
+void	freearray(char **arr)
 {
-	size_t	len;
-	char	*prefix;
-	char	*word;
-	char	*set;
+	size_t	i;
 
-	len = 0;
-	while (str[len] == c)
-		len++;
-	while (str[len] != c && str[len])
-		len++;
-	prefix = malloc(len + 1);
-	if (prefix == NULL)
-		return (NULL);
-	prefix = ft_substr(str, 0, len);
-	set = char_to_string(c);
-	word = ft_strtrim(prefix, set);
-	free(prefix);
-	free(set);
-	return (word);
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**pointers;
-	size_t	numstrs;
+	char	**split;
 	size_t	i;
+	size_t	j;
 
-	numstrs = ft_countwords(c, s);
-	pointers = malloc(numstrs * sizeof(char *));
-	ft_memset(pointers, 0, numstrs);
 	i = 0;
-	while (i < numstrs)
+	j = 0;
+	if (!s)
+		return (NULL);
+	split = malloc(sizeof(char *) * (wordcount(s, c) + 1));
+	if (!split)
+		return (NULL);
+	while (s[i] && j < wordcount(s, c))
 	{
-		pointers[i] = prefix(s, c);
-		s = sufix(s, c);
-		i++;
+		while (s[i] == c && s[i])
+			i++;
+		split[j] = getword(s + i, c);
+		if (!split[j])
+			freearray(split);
+		i += ft_strlen(split[j]);
+		j++;
 	}
-	pointers[i] = NULL;
-	return (pointers);
+	split[j] = NULL;
+	return (split);
 }
