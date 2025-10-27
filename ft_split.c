@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 09:52:22 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/27 10:12:28 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/27 14:48:36 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/27 14:52:40 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		split[j] = get_word(s + i, c);
 		if (!split[j])
-			free_memory(split);
+			return (free_memory(split), NULL);
 		i += ft_strlen(split[j]);
 		j++;
 	}
