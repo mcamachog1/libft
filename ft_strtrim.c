@@ -12,41 +12,27 @@
 
 #include "libft.h"
 
-int	ft_ischarinstr(char c, const char *str)
-{
-	while (*str)
-	{
-		if (*str == c)
-			return (1);
-		else
-			str++;
-	}
-	return (0);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*strtrim;
+	char	*trim;
+	size_t	len;
 	size_t	i;
-	size_t	j;
 
-	strtrim = malloc(ft_strlen(s1) + 1);
-	if (strtrim == NULL)
+	if (!s1)
 		return (NULL);
-	ft_bzero(strtrim, ft_strlen(s1) + 1);
+	if (!set)
+		return (ft_strdup(s1));
 	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		if (!ft_ischarinstr(s1[i], set))
-		{
-			strtrim[j] = s1[i];
-			i++;
-			j++;
-		}
-		else
-			i++;
-	}
-	strtrim[i] = '\0';
-	return (strtrim);
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	if (i == ft_strlen(s1))
+		return (ft_strdup(""));
+	len = ft_strlen(s1);
+	while (s1[len - 1] && ft_strchr(set, s1[len - 1]))
+		len--;
+	trim = malloc(sizeof(char) * (len - i + 1));
+	if (!trim)
+		return (NULL);
+	ft_strlcpy(trim, s1 + i, len - i + 1);
+	return (trim);
 }

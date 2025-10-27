@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 10:29:02 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/15 11:35:25 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/27 10:08:47 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/27 10:08:51 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, void *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*bytes_dst;
-	unsigned char	*bytes_src;
-	size_t			i;
+	char	c;
 
-	bytes_dst = (unsigned char *)dst;
-	bytes_src = (unsigned char *)src;
-	if (dst < src)
+	if (n == -2147483648)
 	{
-		i = 0;
-		while (i < n)
-		{
-			bytes_dst[i] = bytes_src[i];
-			i++;
-		}
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	else if (dst > src)
+	if (n < 0)
 	{
-		i = n;
-		while (i > 0)
-		{
-			bytes_dst[i - 1] = bytes_src[i - 1];
-			i--;
-		}
+		write(fd, "-", 1);
+		n = -n;
 	}
-	return (dst);
+	if (n < 10)
+	{
+		c = n + '0';
+		write (fd, &c, 1);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		c = (n % 10) + '0';
+		write(fd, &c, 1);
+	}
 }

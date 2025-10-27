@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 15:11:00 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/24 12:17:43 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/21 09:50:32 by macamach          #+#    #+#             */
+<<<<<<< HEAD:srcs/ft_strrchr.c
+/*   Updated: 2025/10/24 13:45:30 by macamach         ###   ########.fr       */
+=======
+/*   Updated: 2025/10/27 09:46:26 by macamach         ###   ########.fr       */
+>>>>>>> casa:ft_strrchr.c
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int	len;
 
-	i = 0;
-	if ((unsigned char)c == 0)
+	len = ft_strlen(s);
+	if (!(unsigned char)c && !len)
+		return ((char *)s);
+	if (!s)
+		return (NULL);
+	while (len >= 0)
 	{
-		while (s[i])
-			i++;
-		return ((char *)&s[i]);
-	}
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)(s + i));
-		else
-			i++;
+		if (s[len] == (unsigned char)c)
+			return ((char *)&s[len]);
+		len--;
 	}
 	return (NULL);
 }
