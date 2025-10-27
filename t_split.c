@@ -2,8 +2,8 @@
 
 int	main(void)
 {
-	char	*string = "1e2e3e,abe,,,,,c,deee,,,efg,,,ee";
-	char	delimiter = 'e';
+	char	*string = "Hello,darling";
+	char	delimiter = ',';
 	char	**split;
 	int	i;
 
