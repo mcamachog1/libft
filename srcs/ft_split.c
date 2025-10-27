@@ -6,13 +6,13 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:52:22 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/23 13:58:02 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/27 10:12:28 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	wordcount(char const *s, char c)
+static size_t	word_count(char const *s, char c)
 {
 	size_t	count;
 
@@ -32,7 +32,7 @@ static size_t	wordcount(char const *s, char c)
 	return (count);
 }
 
-static char	*getword(const char *s, char c)
+static char	*get_word(const char *s, char c)
 {
 	size_t	i;
 	char	*str;
@@ -47,7 +47,7 @@ static char	*getword(const char *s, char c)
 	return (str);
 }
 
-void	freearray(char **arr)
+void	free_memory(char **arr)
 {
 	size_t	i;
 
@@ -70,16 +70,16 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	if (!s)
 		return (NULL);
-	split = malloc(sizeof(char *) * (wordcount(s, c) + 1));
+	split = malloc(sizeof(char *) * (word_count(s, c) + 1));
 	if (!split)
 		return (NULL);
-	while (s[i] && j < wordcount(s, c))
+	while (s[i] && j < word_count(s, c))
 	{
 		while (s[i] == c && s[i])
 			i++;
-		split[j] = getword(s + i, c);
+		split[j] = get_word(s + i, c);
 		if (!split[j])
-			freearray(split);
+			free_memory(split);
 		i += ft_strlen(split[j]);
 		j++;
 	}

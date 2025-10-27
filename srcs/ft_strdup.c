@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:51:25 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/21 09:51:31 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/27 10:00:12 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strdup(const char *s)
 	char	*dup;
 	size_t	i;
 
-	if (s == NULL)
-		return (NULL);
 	dup = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (dup == NULL)
 	{

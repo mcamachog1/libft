@@ -6,13 +6,13 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:29:02 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/15 11:35:25 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/27 09:43:27 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	unsigned char	*bytes_dst;
 	unsigned char	*bytes_src;
