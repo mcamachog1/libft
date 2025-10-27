@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:08:39 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/24 14:05:24 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/21 13:33:01 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	unsigned int	size;
-	char			*results;
+	char	*results;
+	size_t	i;
+	size_t	size;
 
-	size = (unsigned int)ft_strlen(s);
-	results = malloc((size + 1) * sizeof(char));
+	size = ft_strlen(s);
+	results = malloc(size + 1);
 	if (results == NULL)
 		return (NULL);
 	i = 0;

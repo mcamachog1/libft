@@ -6,11 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:50:32 by macamach          #+#    #+#             */
-<<<<<<< HEAD:srcs/ft_strrchr.c
-/*   Updated: 2025/10/24 13:45:30 by macamach         ###   ########.fr       */
-=======
 /*   Updated: 2025/10/27 09:46:26 by macamach         ###   ########.fr       */
->>>>>>> casa:ft_strrchr.c
 /*                                                                            */
 /* ************************************************************************** */
 
