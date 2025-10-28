@@ -6,7 +6,7 @@
 #    By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 14:12:19 by macamach          #+#    #+#              #
-#    Updated: 2025/10/28 14:03:53 by macamach         ###   ########.fr        #
+#    Updated: 2025/10/28 15:21:10 by macamach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,18 +81,21 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 # New target to build the library including BONUS objects
-bonus: $(OBJS) $(BONUS_OBJS)
+.bonus: $(OBJS) $(BONUS_OBJS)
+	@touch .bonus 
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS) .bonus
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+bonus: .bonus
 
 # Phony targets prevent conflicts with files that might have the same name
 .PHONY: all clean fclean re
