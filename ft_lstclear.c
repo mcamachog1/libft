@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 08:47:20 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/28 08:47:25 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/28 10:28:25 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/28 11:28:45 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int	i;
+	t_list	*node;
 
-	i = 0;
-	while (lst != NULL)
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		i++;
-		lst = lst->next;
+		node = *lst;
+		*lst = (*lst)->next;
+		del(node->content);
+		free(node);
 	}
-	return (i);
+	*lst = NULL;
 }

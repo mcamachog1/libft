@@ -6,7 +6,7 @@
 #    By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 14:12:19 by macamach          #+#    #+#              #
-#    Updated: 2025/10/14 11:03:46 by macamach         ###   ########.fr        #
+#    Updated: 2025/10/28 10:12:53 by macamach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = libft.a
 
 # Compiler command
-CC = gcc
+CC = cc
 
 # Standard and warning flags
 CFLAGS = -Wall -Wextra -Werror
@@ -58,7 +58,12 @@ SRCS = ft_atoi.c \
 # Bonus Source files
 BONUS_SRCS = ft_lstnew.c \
 		ft_lstadd_front.c \
-		ft_lstsize.c
+		ft_lstsize.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstlast.c 
 
 # Object files (Mandatory)
 OBJS = $(SRCS:.c=.o)

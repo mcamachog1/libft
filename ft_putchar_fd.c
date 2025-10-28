@@ -6,11 +6,11 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 14:27:39 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/21 14:34:42 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/28 09:21:15 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h" 
 
 void	ft_putchar_fd(char c, int fd)
 {
