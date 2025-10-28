@@ -6,7 +6,7 @@
 #    By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 14:12:19 by macamach          #+#    #+#              #
-#    Updated: 2025/10/28 10:12:53 by macamach         ###   ########.fr        #
+#    Updated: 2025/10/28 14:03:53 by macamach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,8 @@ BONUS_SRCS = ft_lstnew.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstlast.c 
+		ft_lstlast.c \
+		ft_lstmap.c
 
 # Object files (Mandatory)
 OBJS = $(SRCS:.c=.o)
