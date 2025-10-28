@@ -56,7 +56,9 @@ SRCS = ft_atoi.c \
 	ft_toupper.c
 
 # Bonus Source files
-BONUS_SRCS = ft_lstnew.c 
+BONUS_SRCS = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c
 
 # Object files (Mandatory)
 OBJS = $(SRCS:.c=.o)
