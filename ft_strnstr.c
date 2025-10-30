@@ -39,3 +39,17 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	else
 		return (NULL);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int	main(int argc, char *argv[])
+{
+	if (argc != 4)
+	{
+		printf("Return a pointer to the first ocurrence of substr little in string big, compare n characters in big.\nArguments:\n[1]: Big string\n[2]: Little string\n[3]: numbers of characters of big to compare\n");
+		return (1);
+	}	
+	printf("%s\n", ft_strnstr(argv[1], argv[2], atoi(argv[3]))); 
+}
+*/

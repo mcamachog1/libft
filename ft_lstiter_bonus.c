@@ -1,44 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 09:46:16 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/30 10:33:35 by macamach         ###   ########.fr       */
+/*   Created: 2025/10/28 11:32:23 by macamach          #+#    #+#             */
+/*   Updated: 2025/10/28 11:39:27 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(char c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (c == 32 || (c >= 9 && c <= 13))
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_atoi(const char *nptr)
-{
-	int	factor;
-	int	number;
-
-	number = 0;
-	factor = 1;
-	while (ft_isspace(*nptr))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst)
 	{
-		if (*nptr == '-')
-			factor = -1;
-		nptr++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	while (ft_isdigit(*nptr))
-	{
-		number = number * 10 + (*nptr - 48);
-		nptr++;
-	}
-	return (number * factor);
 }

@@ -6,7 +6,7 @@
 /*   By: macamach <mcamach@student.42porto.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:48:36 by macamach          #+#    #+#             */
-/*   Updated: 2025/10/27 14:52:40 by macamach         ###   ########.fr       */
+/*   Updated: 2025/10/30 10:33:55 by macamach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*get_word(const char *s, char c)
 	return (str);
 }
 
-void	free_memory(char **arr)
+static void	free_memory(char **arr)
 {
 	size_t	i;
 
