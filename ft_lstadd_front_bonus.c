@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list *first_node;
+	t_list	*first_node;
 
 	if (!lst || !new)
-		return;
+		return ;
 	first_node = *lst;
 	*lst = new;
 	new->next = first_node;
@@ -53,6 +53,6 @@ int main(void)
 	ft_lstprint(my_list);
 
 	printf("\nAdress of structure (must be *t_list) %p\n", (void *)my_list);
-	printf("Pointer to adress of structure (must be **t_list) %p\n", (void *)p_list);
+	printf("Pointer to adress (must be **t_list) %p\n", (void *)p_list);
 }
 */

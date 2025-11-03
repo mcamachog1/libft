@@ -47,7 +47,7 @@ int	main(int argc, char *argv[])
 {
 	if (argc != 4)
 	{
-		printf("Return a pointer to the first ocurrence of substr little in string big, compare n characters in big.\nArguments:\n[1]: Big string\n[2]: Little string\n[3]: numbers of characters of big to compare\n");
+		printf("Arguments:\n[1]: Big string\n[2]: Little string\n[3]: n\n");
 		return (1);
 	}	
 	printf("%s\n", ft_strnstr(argv[1], argv[2], atoi(argv[3]))); 
